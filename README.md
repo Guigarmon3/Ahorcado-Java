@@ -1,6 +1,6 @@
-<div align="center" style="border: 1px solid grey; border-radius: 20px; padding: 30px; width: 20%;">
+<div align="center" style="border: 1px solid grey; border-radius: 20px; padding: 30px;">
 
-  <img src="https://brandslogos.com/wp-content/uploads/images/large/java-logo-1.png" width="100">
+  <img src="https://brandslogos.com/wp-content/uploads/images/large/java-logo-1.png" width="100px">
 
   <h1>
     <span>Ahorcado</span>
