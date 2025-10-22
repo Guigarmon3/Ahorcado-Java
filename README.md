@@ -1,4 +1,4 @@
-<div align="center" style="border: 1px solid grey; border-radius: 20px; padding: 30px;">
+<div align="center" style="border: 1px solid grey; border-radius: 20px; padding: 30px; width: 50%;">
 
   <img src="https://brandslogos.com/wp-content/uploads/images/large/java-logo-1.png" width="100">
 
