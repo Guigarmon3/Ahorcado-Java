@@ -1,3 +1,8 @@
+<p align="center">
+  <img src="https://img.shields.io/badge/Java-Project-blue">
+  <img src="https://img.shields.io/badge/License-MIT-green">
+</p>
+
 <div align="center" style="border: 1px solid grey; border-radius: 20px; padding: 30px;">
 
   <img src="https://brandslogos.com/wp-content/uploads/images/large/java-logo-1.png" width="100px">
