@@ -1,39 +1,41 @@
 import java.util.Scanner;
 
 public class Main {
+
     public static void main(String[] args) {
         char[] secret;
         String text;
         int vidas=3;
         char letra;
 
-        // Pide la frase para buscar
         text = getSecretWord();
-        // Determina la logintud de el array
         secret = new char[text.length()];
-        // Muestra los caracteres introducidos
+
         fill(secret,text);
 
         do{
+
             show(secret);
             letra = getChar(text);
             if (check(secret, text, letra) == false) {
-                System.out.println("-1 vida");
                 vidas--;
             }
+            if (count(secret) == 0) {
+                break;
+            }
+        }while (vidas > 0);
 
-        }while (vidas > 0 && count(secret) > 0);
-        if (vidas <= 0) {
+        if (vidas == 0) {
             System.out.println("Has perdido pedazo de bot");
         } else {
-            System.out.println("Has GANADOOO");
+            System.out.println("Victoria Magistral");
         }
     }
 
     // Obtener del usuario el texto a adivinar
     private static String getSecretWord() {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Introduce el texto para adivinar");
+        System.out.println("Introduce la frase que quieres usar");
         String texto = sc.nextLine();
         return texto;
     }
@@ -43,46 +45,39 @@ public class Main {
     // En caso negativo se devuelve false.
     private static boolean check(char[] secret,String text,char letra) {
         boolean valor = false;
-        for (int i = 0; i<text.length();i++) {
-            if (letra == text.charAt(i)) {
+        String texto = text.toLowerCase();
+        char letrica = Character.toLowerCase(letra);
+        for (int i = 0; i<secret.length;i++) {
+            if (letrica == texto.charAt(i)) {
                 secret[i] = text.charAt(i);
-                System.out.println("si");
                 valor = true;
-            } else {
-                System.out.println("no");
             }
         }
-        if (valor == true) {
-            return true;
-        } else {
+        return valor;
 
-            return false;
-        }
     }
 
     // Se rellena el array con '_' en la posicion de cada letra,
     // y ' ' en los espacios en blanco
     private static void fill(char[] secret, String text){
-        for (int i = 0; i<text.length();i++) {
-            if (text.charAt(i) == ' ') {
-                secret[i] = ' ';
-            } else {
+        for (int i = 0; i<secret.length;i++) {
+            if (text.charAt(i) != ' ') {
                 secret[i] = '_';
+            } else {
+                secret[i] = ' ';
             }
         }
     }
 
     // Contar la cantidad de '_' en un array;
     private static int count(char[] secret){
-        int Downbar = 0;
-        for (int i = 0; i<secret.length;i++) {
-            if (secret[i] != ' ') {
-                if (secret[i] == '_') {
-                    Downbar++;
-                }
+        int DownBar = 0;
+        for (int i = 0; i<secret.length; i++) {
+            if (secret[i] == '_') {
+                DownBar++;
             }
         }
-        return Downbar;
+        return DownBar;
     }
 
     // Muestra el array de caracteres. Cada caracter se muestra seguido de un espacio en blanco
@@ -90,15 +85,13 @@ public class Main {
         for (int i = 0; i<text.length; i++) {
             System.out.print(text[i] + " ");
         }
-        System.out.println();
     }
-
 
     // Se muestra el texto y se obtiene un caracter por parte del usuario.
     private static char getChar(String text){
         Scanner sc = new Scanner(System.in);
-        System.out.println("Introduce un caracter");
-        char letrica = sc.nextLine().charAt(0);
-        return letrica;
+        System.out.println();
+        System.out.println("Introduce el caracter que quieres poner");
+        return sc.nextLine().charAt(0);
     }
 }
